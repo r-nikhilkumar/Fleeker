@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimg2"
+
     tools:context=".Signup">
 
     <TextView
@@ -15,7 +15,6 @@
         android:fontFamily="@font/aref_ruqaa"
         android:text="@string/signup"
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -30,13 +29,11 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="14dp"
         android:hint="@string/first_name"
-        android:textColorHint="@color/adon5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/profilePic">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/firstnametext"
-            android:textColor="@color/black"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="3dp" />
@@ -48,7 +45,6 @@
         android:layout_height="50dp"
         android:layout_marginTop="14dp"
         android:hint="@string/last_name"
-        android:textColorHint="@color/adon5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.37"
         app:layout_constraintStart_toEndOf="@+id/firstnamelayout"
@@ -57,7 +53,6 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/lastnametext"
             android:layout_width="match_parent"
-            android:textColor="@color/black"
             android:layout_height="match_parent"
             android:paddingTop="3dp" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -69,16 +64,15 @@
         android:layout_height="50dp"
         android:layout_marginTop="16dp"
         android:hint="@string/username"
-        android:textColorHint="@color/adon5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastnamelayout">
+
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/usernametext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/black"
             android:paddingTop="3dp" />
 
 
@@ -90,7 +84,6 @@
         android:layout_height="50dp"
         android:layout_marginTop="14dp"
         android:hint="@string/emailid"
-        android:textColorHint="@color/adon5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
@@ -100,7 +93,6 @@
             android:id="@+id/emailIDtext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/black"
             android:paddingTop="3dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -112,7 +104,6 @@
         android:layout_marginTop="14dp"
         android:ems="10"
         android:hint="@string/new_password"
-        android:textColorHint="@color/adon5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -125,7 +116,6 @@
             android:layout_height="match_parent"
             android:ems="10"
             android:inputType="textPassword"
-            android:textColor="@color/black"
             android:paddingTop="5dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -152,7 +142,6 @@
         android:text="@string/or"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -175,11 +164,11 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/profilePic"
-        android:layout_width="96dp"
-        android:layout_height="96dp"
+        android:layout_width="89dp"
+        android:layout_height="84dp"
         android:layout_marginTop="32dp"
         android:src="@drawable/baseline_add_a_photo_24"
-        app:civ_border_color="#FF000000"
+        app:civ_border_color="@color/bluefam"
         app:civ_border_width="2dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

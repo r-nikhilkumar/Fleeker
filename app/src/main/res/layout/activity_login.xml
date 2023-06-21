@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundimg2"
     tools:context=".Login">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -14,7 +13,6 @@
         android:layout_marginTop="208dp"
         android:ems="10"
         android:hint="Email"
-        android:textColorHint="@color/adon5"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -25,7 +23,6 @@
             android:id="@+id/login_email_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/black"
             android:ems="10"
             android:paddingTop="5dp" />
 
@@ -38,8 +35,6 @@
         android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="Password"
-        android:backgroundTint="@color/adon2"
-        android:textColorHint="@color/adon5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +45,6 @@
             android:id="@+id/login_password_input"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textColor="@color/black"
             android:ems="10"
             android:inputType="textPassword"
             android:paddingTop="5dp" />
@@ -64,6 +58,7 @@
         android:layout_marginTop="44dp"
         android:text="Login"
         android:backgroundTint="@color/adon4"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +71,6 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
         android:text="Don't have any account?"
-        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login_button"
@@ -90,7 +84,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginTop="20dp"
         android:text="SignUp"
-        android:textColor="@color/adon3"
+        android:textColor="@color/bluefam"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.076"
@@ -105,7 +99,6 @@
         android:fontFamily="@font/aref_ruqaa"
         android:text="LogIn"
         android:textAlignment="center"
-        android:textColor="@color/black"
         android:textSize="48sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/login_email"
