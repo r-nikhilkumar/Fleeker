@@ -49,6 +49,7 @@ public class Home extends Fragment {
         FirebaseDatabase.getInstance().getReference().child("user").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+                chat_list.clear();
                 if(snapshot!=null){
                     for (DataSnapshot dataSnapshot: snapshot.getChildren()){
                         Users user = dataSnapshot.getValue(Users.class);
