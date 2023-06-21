@@ -65,7 +65,7 @@
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/typeComment"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_launcher_2_foreground" />
+                app:srcCompat="@drawable/baseline_send_24" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

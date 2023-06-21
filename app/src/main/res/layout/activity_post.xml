@@ -13,7 +13,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="CREATE POST"
-        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -62,7 +61,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
         android:text="TextView"
-        android:textColor="@color/black"
         android:textSize="20sp"
         app:layout_constraintStart_toEndOf="@+id/create_post_profile"
         app:layout_constraintTop_toTopOf="@+id/create_post_profile"
@@ -75,6 +73,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:gravity="top"
+        android:background="@null"
         android:hint="What's in your mind?............."
         android:inputType="textMultiLine"
         android:isScrollContainer="true"
@@ -128,14 +127,12 @@
         android:id="@+id/post"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="24dp"
         android:text="Add to your post"
-        android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/addimg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/addimg"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/view8"
+        app:layout_constraintVertical_bias="0.607" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
