@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/pro"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/baseline_account_circle_24" />
+
+    <TextView
+        android:id="@+id/recivertextset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="1dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="5dp"
+        android:background="@drawable/reciever_shape"
+        android:layout_toRightOf="@id/pro"
+        android:padding="7dp"
+        android:text="receive"
+        android:textColor="@color/black"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/chatTimeRec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recivertextset"
+        android:layout_alignStart="@+id/pro"
+        android:layout_alignEnd="@+id/recivertextset"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="3dp"
+        android:layout_marginBottom="3dp"
+        android:text="TextView"
+        android:ellipsize="start"
+        android:singleLine="true"
+        android:textSize="6dp" />
+
+</RelativeLayout>

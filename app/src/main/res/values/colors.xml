@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#C4F8FF</color>
+    <color name="adon">#C4E7F7</color>
+    <color name="adon2">#97E5EF</color>
+    <color name="adon3">#5C72EF</color>
+    <color name="adon4">#075660</color>
+    <color name="adon5">#037785</color>
+    <color name="greybut">#B8D3D6</color>
+    <color name="greybuttext">#749CA0</color>
+
+
+</resources>

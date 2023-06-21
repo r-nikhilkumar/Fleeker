@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Fleeker</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="signup">SignUp</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="contact_number">Contact Number</string>
+    <string name="emailid">EmailID</string>
+    <string name="username">Username</string>
+    <string name="new_password">New Password</string>
+    <string name="signup_button">Signup</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="or">---OR---</string>
+</resources>

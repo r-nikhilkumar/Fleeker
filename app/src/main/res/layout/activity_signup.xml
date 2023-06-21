@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/backgroundimg2"
+    tools:context=".Signup">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="212dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/aref_ruqaa"
+        android:text="@string/signup"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/firstnamelayout"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/first_name"
+        android:textColorHint="@color/adon5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profilePic">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/firstnametext"
+            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingTop="3dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/lastnamelayout"
+        android:layout_width="125dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/last_name"
+        android:textColorHint="@color/adon5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toEndOf="@+id/firstnamelayout"
+        app:layout_constraintTop_toBottomOf="@+id/profilePic">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lastnametext"
+            android:layout_width="match_parent"
+            android:textColor="@color/black"
+            android:layout_height="match_parent"
+            android:paddingTop="3dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <com.hbb20.CountryCodePicker
+        android:id="@+id/ccp"
+        android:layout_width="107dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="14dp"
+        app:ccp_showFlag="true"
+        app:ccp_showFullName="false"
+        app:ccp_showNameCode="false"
+        app:ccp_showPhoneCode="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/phoneNumberlayout"
+        app:layout_constraintHorizontal_bias="0.952"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/firstnamelayout"
+        app:layout_constraintVertical_bias="0.006" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneNumberlayout"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/contact_number"
+        android:textColorHint="@color/adon5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastnamelayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phoneNumbertext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:paddingTop="3dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailIDlayout"
+        android:layout_width="288dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:hint="@string/emailid"
+        android:textColorHint="@color/adon5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneNumberlayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/emailIDtext"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/black"
+            android:paddingTop="3dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signup_password"
+        android:layout_width="288dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="14dp"
+        android:ems="10"
+        android:hint="@string/new_password"
+        android:textColorHint="@color/adon5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailIDlayout"
+        app:passwordToggleEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signup_password_input"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:textColor="@color/black"
+            android:paddingTop="5dp" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/signup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/adon4"
+        android:text="@string/signup_button"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_password"
+        app:layout_constraintVertical_bias="0.065" />
+
+    <TextView
+        android:id="@+id/___or___"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:text="@string/or"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signup_button"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <ImageView
+        android:id="@+id/google_signup_image"
+        android:layout_width="53dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/___or___"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/googlesignin" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profilePic"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_marginTop="32dp"
+        android:src="@drawable/baseline_add_a_photo_24"
+        app:civ_border_color="#FF000000"
+        app:civ_border_width="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

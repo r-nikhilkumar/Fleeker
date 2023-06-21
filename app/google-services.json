@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "579186651473",
+    "firebase_url": "https://fleeker-64601-default-rtdb.firebaseio.com",
+    "project_id": "fleeker-64601",
+    "storage_bucket": "fleeker-64601.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:579186651473:android:2f459e8934f1a00df6a370",
+        "android_client_info": {
+          "package_name": "com.example.fleeker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "579186651473-36bht7m4b4rbh31dia98bu7knaegim1k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.fleeker",
+            "certificate_hash": "0652a1a82d1d6b7e1d96b1b7e714ea1aef42ba17"
+          }
+        },
+        {
+          "client_id": "579186651473-nchr6iu4k87q8l4ohfj7vsthkcpfs94v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCRlstbGypsyfs4VIqVQC7jGp4zQ-s5YGA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "579186651473-2adlq82l0tg16c5ii0uhsre7rs4rmu2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
