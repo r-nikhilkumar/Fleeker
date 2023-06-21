@@ -45,6 +45,6 @@
         android:text="TextView"
         android:ellipsize="start"
         android:singleLine="true"
-        android:textSize="6dp" />
+        android:textSize="9dp" />
 
 </RelativeLayout>

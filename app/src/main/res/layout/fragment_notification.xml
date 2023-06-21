@@ -11,6 +11,7 @@
         android:layout_width="194dp"
         android:layout_height="49dp"
         android:layout_marginTop="12dp"
+        android:fontFamily="@font/almendra_display"
         android:text="Notification"
         android:textSize="34sp"
         android:textStyle="bold"

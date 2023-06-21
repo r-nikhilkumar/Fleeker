@@ -3,10 +3,7 @@ package com.example.fleeker;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
@@ -34,7 +31,6 @@ import com.google.firebase.storage.UploadTask;
 import com.squareup.picasso.Picasso;
 
 import java.util.Date;
-import java.util.HashMap;
 
 public class PostActivity extends AppCompatActivity {
 
@@ -54,8 +50,9 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
-                Picasso.get().load(user.getUser_profilePic()).into((ImageView)findViewById(R.id.create_post_profile));
+                Picasso.get().load(user.getUser_profilePic()).into((ImageView)findViewById(R.id.profile));
                 ((TextView)findViewById(R.id.createpost_name)).setText(user.getUser_name());
+                ((TextView)findViewById(R.id.createpost_username)).setText(user.getUser_usernameReal());
             }
 
             @Override

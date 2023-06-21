@@ -14,7 +14,7 @@
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="3dp"
-        app:cardCornerRadius="17dp"
+        app:cardCornerRadius="107dp"
         app:cardElevation="10dp"
         app:cardMaxElevation="10dp">
 
@@ -75,16 +75,14 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.5" />
 
-        <androidx.cardview.widget.CardView
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginRight="14dp"
-            android:layout_marginLeft="14dp"
-            android:layout_marginBottom="15dp"
+            android:layout_marginLeft="3dp"
             android:layout_marginTop="1dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="10dp"
-            app:cardMaxElevation="10dp"
+            android:layout_marginRight="3dp"
+            android:layout_marginBottom="11dp"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -92,25 +90,38 @@
             app:layout_constraintTop_toBottomOf="@+id/comment_rv"
             app:layout_constraintVertical_bias="0.5">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:paddingTop="3dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                android:paddingTop="3dp"
+                app:cardCornerRadius="50dp"
+                android:layout_marginStart="3dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5">
 
                 <EditText
                     android:id="@+id/typeComment"
-                    android:layout_width="350dp"
+                    android:layout_width="330dp"
                     android:layout_height="43dp"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginEnd="5dp"
                     android:background="@null"
                     android:ems="10"
                     android:hint="Type your message..."
                     android:inputType="textMultiLine"
-                    android:paddingLeft="15dp"
-                    android:scrollbars="vertical"
                     android:isScrollContainer="true"
-                    android:layout_marginLeft="2dp"
-                    android:layout_marginEnd="1dp"
+                    android:paddingLeft="15dp"
                     android:paddingEnd="2dp"
+                    android:scrollbars="vertical"
                     android:singleLine="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/sendComment"
@@ -119,24 +130,42 @@
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.5" />
 
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="5dp"
+                app:cardCornerRadius="30dp"
+                app:cardElevation="10dp"
+                app:cardMaxElevation="10dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/cardView2"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5">
+
                 <ImageView
                     android:id="@+id/sendComment"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
+                    android:layout_marginLeft="4dp"
                     android:layout_marginEnd="3dp"
-                    android:layout_marginLeft="2dp"
-                    android:paddingEnd="5dp"
+                    android:paddingStart="2dp"
+                    android:paddingEnd="2dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toEndOf="@+id/typeComment"
                     app:layout_constraintTop_toTopOf="parent"
                     app:srcCompat="@drawable/baseline_send_24" />
+            </androidx.cardview.widget.CardView>
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
 
-
-        </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

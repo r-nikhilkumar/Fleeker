@@ -45,7 +45,7 @@
         android:layout_marginLeft="3dp"
         android:text="TextView"
         android:singleLine="true"
-        android:textSize="6dp" />
+        android:textSize="9dp" />
 
 
 
