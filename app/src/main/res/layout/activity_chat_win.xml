@@ -6,46 +6,56 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".ChatWin">
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingTop="30dp"
-        android:paddingBottom="10dp">
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:layout_marginEnd="3dp"
+        app:cardCornerRadius="17dp"
+        app:cardElevation="10dp"
+        app:cardMaxElevation="10dp">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:id="@+id/chatProfileIn"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_marginTop="10dp"
-            android:src="@drawable/baseline_account_circle_24"
-            app:civ_border_color="#FF000000"
-            app:civ_border_width="1dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/nameChatIn"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="14dp"
-            android:text="Name"
-            android:textSize="18dp"
-            android:layout_marginBottom="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/chatProfileIn" />
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chatProfileIn"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:src="@drawable/baseline_account_circle_24"
+                app:civ_border_color="#FF000000"
+                app:civ_border_width="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.079"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.5" />
 
+            <TextView
+                android:id="@+id/nameChatIn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="3dp"
+                android:text="Name"
+                android:textSize="18dp"
+                app:layout_constraintBottom_toBottomOf="@+id/chatProfileIn"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.041"
+                app:layout_constraintStart_toEndOf="@+id/chatProfileIn"
+                app:layout_constraintTop_toTopOf="@+id/chatProfileIn"
+                app:layout_constraintVertical_bias="0.069" />
 
-    <View
-        android:id="@+id/divider10"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="?android:attr/listDivider" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -55,7 +65,8 @@
             android:id="@+id/comment_rv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="8dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="7dp"
             android:layout_marginBottom="?actionBarSize"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,8 +104,14 @@
                     android:background="@null"
                     android:ems="10"
                     android:hint="Type your message..."
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:paddingLeft="15dp"
+                    android:scrollbars="vertical"
+                    android:isScrollContainer="true"
+                    android:layout_marginLeft="2dp"
+                    android:layout_marginEnd="1dp"
+                    android:paddingEnd="2dp"
+                    android:singleLine="false"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toStartOf="@+id/sendComment"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -106,6 +123,9 @@
                     android:id="@+id/sendComment"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginLeft="2dp"
+                    android:paddingEnd="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.5"

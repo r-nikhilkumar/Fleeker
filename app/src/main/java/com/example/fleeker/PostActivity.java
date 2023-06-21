@@ -102,6 +102,7 @@ public class PostActivity extends AppCompatActivity {
             }
         };
         postDesc.addTextChangedListener(postText);
+
         ((ImageView)findViewById(R.id.addimg)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
