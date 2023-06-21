@@ -2,6 +2,7 @@ package com.example.fleeker;
 
 import static android.content.Context.MODE_PRIVATE;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,7 +15,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -61,13 +61,15 @@ public class Account extends Fragment {
         FirebaseAuth auth = FirebaseAuth.getInstance();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("user").child(auth.getUid());
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("SetTextI18n")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
+                assert user != null;
                 ((TextView)view.findViewById(R.id.createpost_name)).setText(user.getUser_name());
                 ((TextView)view.findViewById(R.id.emailText)).setText(user.getUser_email());
-                ((TextView)view.findViewById(R.id.phoneText)).setText("+"+user.getPhoneNumber());
-                ((TextView)view.findViewById(R.id.dobText)).setText(user.getUser_username());
+                ((TextView)view.findViewById(R.id.usernameRealText)).setText(user.getUser_usernameReal());
+                ((TextView)view.findViewById(R.id.userIDText)).setText(user.getUser_username());
                 Picasso.get().load(user.getUser_profilePic()).into((CircleImageView)view.findViewById(R.id.profile_image));
                 ((TextView)view.findViewById(R.id.postcount)).setText(user.getPostCount()+"");
 

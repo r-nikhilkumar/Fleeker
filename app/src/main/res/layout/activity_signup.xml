@@ -63,40 +63,24 @@
     </com.google.android.material.textfield.TextInputLayout>
 
 
-    <com.hbb20.CountryCodePicker
-        android:id="@+id/ccp"
-        android:layout_width="107dp"
-        android:layout_height="47dp"
-        android:layout_marginTop="14dp"
-        app:ccp_showFlag="true"
-        app:ccp_showFullName="false"
-        app:ccp_showNameCode="false"
-        app:ccp_showPhoneCode="true"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/phoneNumberlayout"
-        app:layout_constraintHorizontal_bias="0.952"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstnamelayout"
-        app:layout_constraintVertical_bias="0.006" />
-
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/phoneNumberlayout"
-        android:layout_width="180dp"
+        android:id="@+id/usernamelayout"
+        android:layout_width="288dp"
         android:layout_height="50dp"
-        android:layout_marginTop="14dp"
-        android:hint="@string/contact_number"
+        android:layout_marginTop="16dp"
+        android:hint="@string/username"
         android:textColorHint="@color/adon5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.735"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lastnamelayout">
-
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/phoneNumbertext"
+            android:id="@+id/usernametext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/black"
             android:paddingTop="3dp" />
+
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,7 +94,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/phoneNumberlayout">
+        app:layout_constraintTop_toBottomOf="@+id/usernamelayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/emailIDtext"

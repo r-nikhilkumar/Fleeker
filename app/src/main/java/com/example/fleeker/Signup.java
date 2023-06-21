@@ -41,8 +41,7 @@ public class Signup extends AppCompatActivity {
     ImageView google_signup;
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    TextInputEditText ftname, ltname, email, newPass, phoneNum;
-    CountryCodePicker countryCodePicker;
+    TextInputEditText ftname, ltname, email, newPass,username;
     FirebaseAuth auth;
     CircleImageView profilePic;
     Uri imageURI;
@@ -60,9 +59,7 @@ public class Signup extends AppCompatActivity {
         ltname = findViewById(R.id.lastnametext);
         email = findViewById(R.id.emailIDtext);
         newPass = findViewById(R.id.signup_password_input);
-        phoneNum = findViewById(R.id.phoneNumbertext);
-        countryCodePicker = findViewById(R.id.ccp);
-        String code = countryCodePicker.getSelectedCountryCode();
+        username = findViewById(R.id.usernametext);
         profilePic = findViewById(R.id.profilePic);
         database = FirebaseDatabase.getInstance();
         storage = FirebaseStorage.getInstance();
@@ -76,7 +73,7 @@ public class Signup extends AppCompatActivity {
                 String name = ftname.getText().toString()+" "+ltname.getText();
                 String emailId = email.getText().toString();
                 String newPassword = newPass.getText().toString();
-                String phoneNumber = code + phoneNum.getText().toString();
+                String usernm = username.getText().toString();
 
                 auth.createUserWithEmailAndPassword(emailId,newPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -95,7 +92,7 @@ public class Signup extends AppCompatActivity {
                                                 @Override
                                                 public void onSuccess(Uri uri) {
                                                     imageuri = uri.toString();
-                                                    Users users = new Users(name, imageuri, emailId, user_id,newPassword, phoneNumber);
+                                                    Users users = new Users(name, imageuri, emailId, user_id,newPassword, usernm);
                                                     databaseReference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
@@ -116,7 +113,7 @@ public class Signup extends AppCompatActivity {
                                 });
                             }else{
                                 imageuri = "https://firebasestorage.googleapis.com/v0/b/fleeker-64601.appspot.com/o/default.png?alt=media&token=f634647f-fdba-45ff-85cf-ae2c3db8f081";
-                                Users users = new Users(name, imageuri, emailId, user_id,newPassword, phoneNumber);
+                                Users users = new Users(name, imageuri, emailId, user_id,newPassword, usernm);
                                 databaseReference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

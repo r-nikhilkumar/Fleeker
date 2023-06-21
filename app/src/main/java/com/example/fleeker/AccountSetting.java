@@ -60,7 +60,7 @@ public class AccountSetting extends AppCompatActivity {
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
         gsc = GoogleSignIn.getClient(this, gso);
         GoogleSignInAccount account =GoogleSignIn.getLastSignedInAccount(this);
-        username = findViewById(R.id.username);
+        username = findViewById(R.id.userID);
 //        Intent get_intent = getIntent();
 //        user_id = get_intent.getStringExtra("user_id");
         DatabaseReference databaseReference = database.getReference().child("user");

@@ -5,7 +5,7 @@
     <string name="signup">SignUp</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="contact_number">Contact Number</string>
+    <string name="Username">username</string>
     <string name="emailid">EmailID</string>
     <string name="username">Username</string>
     <string name="new_password">New Password</string>

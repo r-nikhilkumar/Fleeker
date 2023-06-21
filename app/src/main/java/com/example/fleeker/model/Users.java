@@ -1,18 +1,18 @@
 package com.example.fleeker.model;
 
 public class Users {
-    private String user_name, user_profilePic, user_email,user_username,user_password,user_lastmessage, phoneNumber;
+    private String user_name, user_profilePic, user_email,user_username,user_password,user_lastmessage, user_usernameReal;
     private int postCount;
 
     public Users(){}
 
-    public Users(String name, String imageuri, String emailId, String user_id, String newPassword, String phoneNumber){
+    public Users(String name, String imageuri, String emailId, String user_id, String newPassword, String user_usernameReal){
         this.user_name = name;
         this.user_profilePic = imageuri;
         this.user_email = emailId;
         this.user_username = user_id;
         this.user_password = newPassword;
-        this.phoneNumber = phoneNumber;
+        this.user_usernameReal = user_usernameReal;
     }
 
     public String getUser_name() {
@@ -56,13 +56,7 @@ public class Users {
         this.user_password = user_password;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
 
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
 
     public String getUser_lastmessage() {
         return user_lastmessage;
@@ -79,5 +73,13 @@ public class Users {
 
     public void setPostCount(int postCount) {
         this.postCount = postCount;
+    }
+
+    public String getUser_usernameReal() {
+        return user_usernameReal;
+    }
+
+    public void setUser_usernameReal(String user_usernameReal) {
+        this.user_usernameReal = user_usernameReal;
     }
 }
