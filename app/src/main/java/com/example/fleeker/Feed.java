@@ -16,6 +16,11 @@ import android.widget.ImageView;
 import com.example.fleeker.model.PostDB;
 import com.example.fleeker.model.Users;
 import com.example.fleeker.model.feeds_model;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -44,8 +49,11 @@ public class Feed extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_feed, container, false);
 
+
+
         feeds_model_list = new ArrayList<>();
         feed_rv = view.findViewById(R.id.feed_rv);
+
         FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("user_profilePic").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {

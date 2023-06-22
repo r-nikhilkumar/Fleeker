@@ -2,7 +2,7 @@ package com.example.fleeker.model;
 
 public class Users {
     private String user_name, user_profilePic, user_email,user_username,user_password,user_lastmessage, user_usernameReal;
-    private int postCount;
+    private int postCount, linkCount;
 
     public Users(){}
 
@@ -81,5 +81,13 @@ public class Users {
 
     public void setUser_usernameReal(String user_usernameReal) {
         this.user_usernameReal = user_usernameReal;
+    }
+
+    public int getLinkCount() {
+        return linkCount;
+    }
+
+    public void setLinkCount(int linkCount) {
+        this.linkCount = linkCount;
     }
 }

@@ -2,9 +2,9 @@ package com.example.fleeker.model;
 
 public class feeds_model {
 
-    String feedName, feedProfile, postDescription, postImage, feedPostID;
-    int likesCount, commentCount;
-    long timedate;
+    private String feedName, feedProfile, postDescription, postImage, feedPostID;
+    private int likesCount, commentCount;
+    private long timedate;
 
     public feeds_model(){}
 

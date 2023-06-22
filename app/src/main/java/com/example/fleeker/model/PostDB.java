@@ -1,9 +1,9 @@
 package com.example.fleeker.model;
 
 public class PostDB {
-    String createpostImage, createpostDescription, postedByID, postID;
-    long postdatetime;
-    int likesCount, commentCount;
+    private String createpostImage, createpostDescription, postedByID, postID;
+    private long postdatetime;
+    private int likesCount, commentCount;
     public PostDB(){}
 
     public PostDB(String createpostImage, String createpostDescription, String postedByID,long postdatetime,int likesCount, int commentCount ) {

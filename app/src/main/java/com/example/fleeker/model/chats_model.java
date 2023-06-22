@@ -1,7 +1,7 @@
 package com.example.fleeker.model;
 
 public class chats_model {
-    String profileImage, name, email, uid;
+    private String profileImage, name, email, uid;
 //    public chats_model(){}
 
     public chats_model(String profileImage, String name, String email, String uid) {

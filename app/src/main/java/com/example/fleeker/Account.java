@@ -72,6 +72,7 @@ public class Account extends Fragment {
                 ((TextView)view.findViewById(R.id.userIDText)).setText(user.getUser_username());
                 Picasso.get().load(user.getUser_profilePic()).into((CircleImageView)view.findViewById(R.id.profile_image));
                 ((TextView)view.findViewById(R.id.postcount)).setText(user.getPostCount()+"");
+                ((TextView)view.findViewById(R.id.linkcount)).setText(user.getLinkCount()+"");
 
             }
 

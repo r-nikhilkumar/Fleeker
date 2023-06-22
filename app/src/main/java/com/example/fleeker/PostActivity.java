@@ -50,7 +50,7 @@ public class PostActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
-                Picasso.get().load(user.getUser_profilePic()).into((ImageView)findViewById(R.id.profile));
+                Picasso.get().load(user.getUser_profilePic()).into((ImageView)findViewById(R.id.search_profile));
                 ((TextView)findViewById(R.id.createpost_name)).setText(user.getUser_name());
                 ((TextView)findViewById(R.id.createpost_username)).setText(user.getUser_usernameReal());
             }

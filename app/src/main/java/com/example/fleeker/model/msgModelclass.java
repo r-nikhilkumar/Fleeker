@@ -1,9 +1,9 @@
 package com.example.fleeker.model;
 
 public class msgModelclass {
-    String message;
-    String senderid;
-    long timeStamp;
+    private String message;
+    private String senderid;
+    private long timeStamp;
 
     public msgModelclass() {
     }

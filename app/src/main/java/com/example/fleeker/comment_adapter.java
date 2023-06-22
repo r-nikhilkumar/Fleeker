@@ -44,7 +44,7 @@ public class comment_adapter extends RecyclerView.Adapter<comment_adapter.viewho
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
-                Picasso.get().load(user.getUser_profilePic()).into(holder.binding.profile);
+                Picasso.get().load(user.getUser_profilePic()).into(holder.binding.commentProfile);
                 holder.binding.comment.setText(user.getUser_name()+"- "+model.getComment());
             }
 
