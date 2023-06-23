@@ -46,21 +46,35 @@ public class Home extends Fragment {
         View view = inflater.inflate(R.layout.fragment_home, container, false);
         chatRV = view.findViewById(R.id.chat_rv);
         chat_list = new ArrayList<>();
+        ArrayList<String> mylist = new ArrayList<>();
+        FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot : snapshot.getChildren()){
+                    mylist.add(dataSnapshot.getKey());
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
         FirebaseDatabase.getInstance().getReference().child("user").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 chat_list.clear();
-                if(snapshot!=null){
-                    for (DataSnapshot dataSnapshot: snapshot.getChildren()){
-                        Users user = dataSnapshot.getValue(Users.class);
-                        if(user.getUser_username().equals(FirebaseAuth.getInstance().getUid())){
-                            continue;
-                        }
-                        chats_model chats_model = new chats_model(user.getUser_profilePic(),user.getUser_name(),user.getUser_email(),user.getUser_username());
+                for (DataSnapshot dataSnapshot: snapshot.getChildren()){
+                    Users user = dataSnapshot.getValue(Users.class);
+                    if(user.getUser_username().equals(FirebaseAuth.getInstance().getUid())){
+                        continue;
+                    }
+                    if(mylist.contains(user.getUser_username())) {
+                        chats_model chats_model = new chats_model(user.getUser_profilePic(), user.getUser_name(), user.getUser_email(), user.getUser_username());
                         chat_list.add(chats_model);
                     }
-                    chats_adapter.notifyDataSetChanged();
                 }
+                chats_adapter.notifyDataSetChanged();
 
             }
 
