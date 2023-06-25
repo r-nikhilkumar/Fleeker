@@ -58,6 +58,10 @@ public class Search_Adapter extends RecyclerView.Adapter<Search_Adapter.viewhold
                     holder.binding.searchLinkbtn.setText("Linked");
                     holder.binding.searchLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.outline_check_24,0);
                 }
+                else{
+                    holder.binding.searchLinkbtn.setText("Link");
+                    holder.binding.searchLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.baseline_add_24,0);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -73,25 +77,17 @@ public class Search_Adapter extends RecyclerView.Adapter<Search_Adapter.viewhold
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Users userss = snapshot.getValue(Users.class);
                         if(Objects.equals(snapshot.child("Links").child(Objects.requireNonNull(user.getUser_username())).getValue(), "true")){
-                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").child(user.getUser_username()).setValue(null).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    assert userss != null;
-                                    FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("linkCount").setValue(userss.getLinkCount()-1);
-                                    FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).child("LinkRequest").child(FirebaseAuth.getInstance().getUid()).setValue(null);
-                                }
-                            });
+                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").child(user.getUser_username()).setValue(null);
+                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("linkCount").setValue(userss.getLinkCount()-1);
+                            FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).child("LinkRequest").child(FirebaseAuth.getInstance().getUid()).setValue(null);
+
                             holder.binding.searchLinkbtn.setText("Link");
                             holder.binding.searchLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.baseline_add_24,0);
                         }else{
-                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").child(user.getUser_username()).setValue("true").addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    assert userss != null;
-                                    FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("linkCount").setValue(userss.getLinkCount()+1);
-                                    FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).child("LinkRequest").child(FirebaseAuth.getInstance().getUid()).setValue("true");
-                                }
-                            });
+                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").child(user.getUser_username()).setValue("true");
+                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("linkCount").setValue(userss.getLinkCount()+1);
+                            FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).child("LinkRequest").child(FirebaseAuth.getInstance().getUid()).setValue("true");
+
                             holder.binding.searchLinkbtn.setText("Linked");
                             holder.binding.searchLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.outline_check_24,0);
 

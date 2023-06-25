@@ -26,7 +26,6 @@ import java.util.Objects;
 public class Request_Adapter extends RecyclerView.Adapter<Request_Adapter.viewholder>{
     Context context;
     ArrayList<String> list;
-    Users user = new Users();
 
     public Request_Adapter(Context context, ArrayList<String> list) {
         this.context = context;
@@ -47,7 +46,48 @@ public class Request_Adapter extends RecyclerView.Adapter<Request_Adapter.viewho
             FirebaseDatabase.getInstance().getReference("user").child(lst).addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    user = snapshot.getValue(Users.class);
+                    Users user = snapshot.getValue(Users.class);
+                    holder.binding.requestName.setText(user.getUser_name());
+                    holder.binding.requestUsername.setText(user.getUser_usernameReal());
+                    Picasso.get().load(user.getUser_profilePic()).into(holder.binding.requestProfile);
+
+
+                    holder.binding.requestLinkbtn.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    Users userss = snapshot.getValue(Users.class);
+                                    if ((Objects.equals(snapshot.child("Links").child(Objects.requireNonNull(user.getUser_username())).getValue(), "true"))) {
+                                        Toast.makeText(context, "Already your friend!", Toast.LENGTH_SHORT).show();
+                                        holder.binding.requestLinkbtn.setText("Linked");
+                                        holder.binding.requestLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.outline_check_24, 0);
+                                        FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("LinkRequest").child(user.getUser_username()).setValue(null);
+                                    }else{
+
+                                        FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").child(user.getUser_username()).setValue("true").addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void unused) {
+                                                assert userss != null;
+                                                FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("linkCount").setValue(userss.getLinkCount() + 1);
+                                                FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("LinkRequest").child(user.getUser_username()).setValue(null);
+                                            }
+                                        });
+                                        holder.binding.requestLinkbtn.setText("Linked");
+                                        holder.binding.requestLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.outline_check_24, 0);
+
+                                    }
+                                }
+
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
+
+                                }
+                            });
+                        }
+                    });
+
                 }
 
                 @Override
@@ -55,46 +95,7 @@ public class Request_Adapter extends RecyclerView.Adapter<Request_Adapter.viewho
 
                 }
             });
-            holder.binding.requestName.setText(user.getUser_name());
-            holder.binding.requestUsername.setText(user.getUser_usernameReal());
-            Picasso.get().load(user.getUser_profilePic()).into(holder.binding.requestProfile);
 
-
-            holder.binding.requestLinkbtn.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
-                        @Override
-                        public void onDataChange(@NonNull DataSnapshot snapshot) {
-                            Users userss = snapshot.getValue(Users.class);
-                            if ((Objects.equals(snapshot.child("Links").child(Objects.requireNonNull(user.getUser_username())).getValue(), "true"))) {
-                                Toast.makeText(context, "Already your friend!", Toast.LENGTH_SHORT).show();
-                                holder.binding.requestLinkbtn.setText("Linked");
-                                holder.binding.requestLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.outline_check_24, 0);
-                                FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("LinkRequest").child(user.getUser_username()).setValue(null);
-                            }else{
-
-                                FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").child(user.getUser_username()).setValue("true").addOnSuccessListener(new OnSuccessListener<Void>() {
-                                    @Override
-                                    public void onSuccess(Void unused) {
-                                        assert userss != null;
-                                        FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("linkCount").setValue(userss.getLinkCount() + 1);
-                                        FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("LinkRequest").child(user.getUser_username()).setValue(null);
-                                    }
-                                });
-                                holder.binding.requestLinkbtn.setText("Linked");
-                                holder.binding.requestLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.outline_check_24, 0);
-
-                            }
-                        }
-
-                        @Override
-                        public void onCancelled(@NonNull DatabaseError error) {
-
-                        }
-                    });
-                }
-            });
     }
 
     @Override

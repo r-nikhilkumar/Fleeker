@@ -1,14 +1,15 @@
 package com.example.fleeker.model;
 
 public class chats_model {
-    private String profileImage, name, email, uid;
+    private String profileImage, name, email, uid, username;
 //    public chats_model(){}
 
-    public chats_model(String profileImage, String name, String email, String uid) {
+    public chats_model(String profileImage, String name, String email, String uid, String username) {
         this.profileImage = profileImage;
         this.name = name;
         this.email = email;
         this.uid = uid;
+        this.username = username;
     }
 
     public String getUid() {
@@ -41,5 +42,13 @@ public class chats_model {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

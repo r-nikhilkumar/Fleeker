@@ -37,7 +37,7 @@ public class Search extends AppCompatActivity {
         allItemList = new ArrayList<>();
         filteredList = new ArrayList<>();
 
-        FirebaseDatabase.getInstance().getReference("user").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("user").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 allItemList.clear();
@@ -81,9 +81,14 @@ public class Search extends AppCompatActivity {
     @SuppressLint("NotifyDataSetChanged")
     private void filterList(String newText) {
         filteredList.clear();
-        for(Users item : allItemList){
-            if(item.getUser_usernameReal().toLowerCase().contains(newText.toLowerCase())||item.getUser_name().toLowerCase().contains(newText.toLowerCase())||item.getUser_username().toLowerCase().contains(newText.toLowerCase())||item.getUser_email().toLowerCase().contains(newText.toLowerCase())){
-                filteredList.add(item);
+        if(!newText.equals("")) {
+            for (Users item : allItemList) {
+                if (item.getUser_usernameReal().toLowerCase().contains(newText.toLowerCase()) || item.getUser_name().toLowerCase().contains(newText.toLowerCase()) || item.getUser_username().toLowerCase().contains(newText.toLowerCase())) {
+                    filteredList.add(item);
+                }
+                else{
+                    filteredList.remove(item);
+                }
             }
         }
 

@@ -70,7 +70,7 @@ public class Home extends Fragment {
                         continue;
                     }
                     if(mylist.contains(user.getUser_username())) {
-                        chats_model chats_model = new chats_model(user.getUser_profilePic(), user.getUser_name(), user.getUser_email(), user.getUser_username());
+                        chats_model chats_model = new chats_model(user.getUser_profilePic(), user.getUser_name(), user.getUser_email(), user.getUser_username(), user.getUser_usernameReal());
                         chat_list.add(chats_model);
                     }
                 }

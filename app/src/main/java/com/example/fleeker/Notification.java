@@ -69,7 +69,7 @@ public class Notification extends Fragment {
                 request_adapter = new Request_Adapter(getActivity(), req_list);
                 assert req_rv != null;
 
-                FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("LinkRequest").addValueEventListener(new ValueEventListener() {
+                FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("LinkRequest").addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         req_list.clear();

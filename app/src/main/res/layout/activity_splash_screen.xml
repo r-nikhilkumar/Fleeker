@@ -19,19 +19,19 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.674" />
+        app:layout_constraintVertical_bias="0.676" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="283dp"
-        android:layout_height="248dp"
+        android:layout_width="211dp"
+        android:layout_height="193dp"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.432"
-        app:srcCompat="@drawable/splashscreenimage" />
+        app:layout_constraintVertical_bias="0.555"
+        app:srcCompat="@drawable/fleekerlogo2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

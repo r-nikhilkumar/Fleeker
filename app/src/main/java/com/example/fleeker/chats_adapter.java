@@ -41,7 +41,7 @@ public class chats_adapter extends RecyclerView.Adapter<chats_adapter.viewholder
     public void onBindViewHolder(@NonNull viewholder holder, int position) {
         chats_model chats_model = chat_list.get(position);
         holder.name.setText(chats_model.getName());
-        holder.email.setText(chats_model.getEmail());
+        holder.usrnm.setText(chats_model.getUsername());
         Picasso.get().load(chats_model.getProfileImage()).into(holder.chatProfile);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -58,12 +58,12 @@ public class chats_adapter extends RecyclerView.Adapter<chats_adapter.viewholder
 
     public class viewholder extends RecyclerView.ViewHolder{
         ImageView chatProfile;
-        TextView name, email;
+        TextView name, usrnm;
         public viewholder(@NonNull View itemView) {
             super(itemView);
             chatProfile = itemView.findViewById(R.id.chatProfile);
             name = itemView.findViewById(R.id.chat_name);
-            email = itemView.findViewById(R.id.chat_email);
+            usrnm = itemView.findViewById(R.id.chat_username);
         }
     }
 }
