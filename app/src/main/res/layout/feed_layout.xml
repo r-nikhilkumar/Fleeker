@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:text="Name"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.049"
@@ -66,6 +66,19 @@
             app:layout_constraintStart_toEndOf="@+id/chatProfileIn"
             app:layout_constraintTop_toBottomOf="@+id/feed_name"
             app:layout_constraintVertical_bias="0.032" />
+
+        <ImageView
+            android:id="@+id/feedVerify"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="1dp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/feed_name"
+            app:layout_constraintStart_toEndOf="@+id/feed_name"
+            app:layout_constraintTop_toTopOf="@+id/feed_name"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/baseline_verified_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

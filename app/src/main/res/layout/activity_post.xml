@@ -145,4 +145,15 @@
         app:layout_constraintBottom_toBottomOf="@+id/addimg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/addimg" />
+
+    <ImageView
+        android:id="@+id/creatpostVerify"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="1dp"
+        android:visibility="gone"
+        app:layout_constraintStart_toEndOf="@+id/createpost_name"
+        app:layout_constraintTop_toTopOf="@+id/createpost_name"
+        app:srcCompat="@drawable/baseline_verified_24" />
 </androidx.constraintlayout.widget.ConstraintLayout>

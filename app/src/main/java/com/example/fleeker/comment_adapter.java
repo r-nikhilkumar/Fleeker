@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,7 +46,16 @@ public class comment_adapter extends RecyclerView.Adapter<comment_adapter.viewho
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Users user = snapshot.getValue(Users.class);
                 Picasso.get().load(user.getUser_profilePic()).into(holder.binding.commentProfile);
-                holder.binding.comment.setText(user.getUser_name()+"- "+model.getComment());
+                holder.binding.comment.setText(model.getComment());
+                holder.binding.nameCom.setText(user.getUser_name());
+                try {
+                    if (user.getVerified().equals("true")) {
+                        holder.binding.commentVerify.setVisibility(View.VISIBLE);
+                    } else {
+                        holder.binding.commentVerify.setVisibility(View.GONE);
+                    }
+                }catch (NullPointerException ignored){}
+
             }
 
             @Override

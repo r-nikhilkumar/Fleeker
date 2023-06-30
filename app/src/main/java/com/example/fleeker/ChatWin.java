@@ -39,6 +39,13 @@ public class ChatWin extends AppCompatActivity {
         setContentView(R.layout.activity_chat_win);
         Picasso.get().load(getIntent().getStringExtra("profileChat")).into((ImageView)findViewById(R.id.chatProfileIn));
         ((TextView)findViewById(R.id.nameChatIn)).setText(getIntent().getStringExtra("nameChat"));
+        try {
+            if (getIntent().getStringExtra("verified").equals("true")) {
+                ((ImageView) findViewById(R.id.chatWinVerify)).setVisibility(View.VISIBLE);
+            } else {
+                ((ImageView) findViewById(R.id.chatWinVerify)).setVisibility(View.GONE);
+            }
+        }catch (NullPointerException ignored){}
         textmsg = findViewById(R.id.typeComment);
         chat_msg_rv = findViewById(R.id.comment_rv);
 

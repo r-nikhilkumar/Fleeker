@@ -86,6 +86,7 @@ public class Feed extends Fragment {
                                 Users user = snapshot.getValue(Users.class);
                                 feeds_model1.setFeedName(user.getUser_name());
                                 feeds_model1.setFeedProfile(user.getUser_profilePic());
+                                feeds_model1.setVerified(user.getVerified());
                             }
 
                             @Override

@@ -1,7 +1,7 @@
 package com.example.fleeker.model;
 
 public class chats_model {
-    private String profileImage, name, email, uid, username;
+    private String profileImage, name, email, uid, username, verified;
 //    public chats_model(){}
 
     public chats_model(String profileImage, String name, String email, String uid, String username) {
@@ -50,5 +50,13 @@ public class chats_model {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 }

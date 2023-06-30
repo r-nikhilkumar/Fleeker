@@ -92,7 +92,8 @@ public class Signup extends AppCompatActivity {
                                                 @Override
                                                 public void onSuccess(Uri uri) {
                                                     imageuri = uri.toString();
-                                                    Users users = new Users(name, imageuri, emailId, user_id,newPassword, usernm);
+                                                    String verified = "false";
+                                                    Users users = new Users(name, imageuri, emailId, user_id,newPassword, usernm,verified);
                                                     databaseReference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                                         @Override
                                                         public void onComplete(@NonNull Task<Void> task) {
@@ -112,8 +113,9 @@ public class Signup extends AppCompatActivity {
                                     }
                                 });
                             }else{
+                                String verified = "false";
                                 imageuri = "https://firebasestorage.googleapis.com/v0/b/fleeker-64601.appspot.com/o/default.png?alt=media&token=f634647f-fdba-45ff-85cf-ae2c3db8f081";
-                                Users users = new Users(name, imageuri, emailId, user_id,newPassword, usernm);
+                                Users users = new Users(name, imageuri, emailId, user_id,newPassword, usernm, verified);
                                 databaseReference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
                                     public void onComplete(@NonNull Task<Void> task) {

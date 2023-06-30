@@ -71,6 +71,7 @@ public class Home extends Fragment {
                     }
                     if(mylist.contains(user.getUser_username())) {
                         chats_model chats_model = new chats_model(user.getUser_profilePic(), user.getUser_name(), user.getUser_email(), user.getUser_username(), user.getUser_usernameReal());
+                        chats_model.setVerified(user.getVerified());
                         chat_list.add(chats_model);
                     }
                 }

@@ -9,7 +9,7 @@
     android:layout_marginEnd="3dp"
     android:layout_marginBottom="3dp"
     android:paddingBottom="1dp"
-    app:cardCornerRadius="227dp"
+    app:cardCornerRadius="127dp"
     app:cardElevation="20dp"
     app:cardMaxElevation="20dp">
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,8 +20,8 @@
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/comment_profile"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="2dp"
         android:layout_marginBottom="2dp"
@@ -33,25 +33,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.5" />
 
-    <TextView
-        android:id="@+id/comment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/comment_profile"
-        app:layout_constraintTop_toTopOf="@+id/comment_profile" />
+        <TextView
+            android:id="@+id/comment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="2dp"
+            android:text="TextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/commentVerify"
+            app:layout_constraintTop_toTopOf="@+id/nameCom" />
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        app:layout_constraintStart_toStartOf="@+id/comment"
-        app:layout_constraintTop_toBottomOf="@+id/comment" />
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:layout_marginTop="2dp"
+            app:layout_constraintStart_toStartOf="@+id/nameCom"
+            app:layout_constraintTop_toBottomOf="@+id/nameCom" />
+
+        <TextView
+            android:id="@+id/nameCom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="20dp"
+            android:layout_marginLeft="4dp"
+            app:layout_constraintStart_toEndOf="@+id/comment_profile"
+            app:layout_constraintTop_toTopOf="@+id/comment_profile" />
+
+        <ImageView
+            android:id="@+id/commentVerify"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginTop="1dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/nameCom"
+            app:layout_constraintTop_toTopOf="@+id/nameCom"
+            app:srcCompat="@drawable/baseline_verified_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

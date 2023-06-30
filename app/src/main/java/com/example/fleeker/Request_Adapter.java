@@ -50,6 +50,13 @@ public class Request_Adapter extends RecyclerView.Adapter<Request_Adapter.viewho
                     holder.binding.requestName.setText(user.getUser_name());
                     holder.binding.requestUsername.setText(user.getUser_usernameReal());
                     Picasso.get().load(user.getUser_profilePic()).into(holder.binding.requestProfile);
+                    try {
+                        if (user.getVerified().equals("true")) {
+                            holder.binding.requestVerify.setVisibility(View.VISIBLE);
+                        } else {
+                            holder.binding.requestVerify.setVisibility(View.GONE);
+                        }
+                    }catch (NullPointerException ignored){}
 
 
                     holder.binding.requestLinkbtn.setOnClickListener(new View.OnClickListener() {

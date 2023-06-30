@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.fleeker.model.Users;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -73,6 +74,14 @@ public class Account extends Fragment {
                 Picasso.get().load(user.getUser_profilePic()).into((CircleImageView)view.findViewById(R.id.profile_image));
                 ((TextView)view.findViewById(R.id.postcount)).setText(user.getPostCount()+"");
                 ((TextView)view.findViewById(R.id.linkcount)).setText(user.getLinkCount()+"");
+                try {
+                    if (user.getVerified().equals("true")) {
+                        ((ImageView) view.findViewById(R.id.profileVerify)).setVisibility(View.VISIBLE);
+                    } else {
+                        ((ImageView) view.findViewById(R.id.profileVerify)).setVisibility(View.GONE);
+                    }
+                }catch (NullPointerException ignored){}
+
 
             }
 

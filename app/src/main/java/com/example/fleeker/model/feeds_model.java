@@ -2,7 +2,7 @@ package com.example.fleeker.model;
 
 public class feeds_model {
 
-    private String feedName, feedProfile, postDescription, postImage, feedPostID;
+    private String feedName, feedProfile, postDescription, postImage, feedPostID, verified;
     private int likesCount, commentCount;
     private long timedate;
 
@@ -77,5 +77,13 @@ public class feeds_model {
 
     public void setTimedate(long timedate) {
         this.timedate = timedate;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 }

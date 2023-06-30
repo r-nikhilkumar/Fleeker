@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -50,6 +51,13 @@ public class Search_Adapter extends RecyclerView.Adapter<Search_Adapter.viewhold
         holder.binding.searchName.setText(user.getUser_name());
         Picasso.get().load(user.getUser_profilePic()).into(holder.binding.searchProfile);
         holder.binding.searchUsername.setText(user.getUser_usernameReal());
+        try {
+            if (user.getVerified().equals("true")) {
+                holder.binding.searchVerify.setVisibility(View.VISIBLE);
+            } else {
+                holder.binding.searchVerify.setVisibility(View.GONE);
+            }
+        }catch (NullPointerException ignored){}
 
         FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -62,12 +70,14 @@ public class Search_Adapter extends RecyclerView.Adapter<Search_Adapter.viewhold
                     holder.binding.searchLinkbtn.setText("Link");
                     holder.binding.searchLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0,0,R.drawable.baseline_add_24,0);
                 }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
         });
+
 
         holder.binding.searchLinkbtn.setOnClickListener(new View.OnClickListener() {
             @Override

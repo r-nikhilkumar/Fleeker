@@ -53,6 +53,13 @@ public class PostActivity extends AppCompatActivity {
                 Picasso.get().load(user.getUser_profilePic()).into((ImageView)findViewById(R.id.search_profile));
                 ((TextView)findViewById(R.id.createpost_name)).setText(user.getUser_name());
                 ((TextView)findViewById(R.id.createpost_username)).setText(user.getUser_usernameReal());
+                try {
+                    if (user.getVerified().equals("true")) {
+                        ((ImageView) findViewById(R.id.creatpostVerify)).setVisibility(View.VISIBLE);
+                    } else {
+                        ((ImageView) findViewById(R.id.creatpostVerify)).setVisibility(View.GONE);
+                    }
+                }catch (NullPointerException ignored){}
             }
 
             @Override

@@ -3,16 +3,18 @@ package com.example.fleeker.model;
 public class Users {
     private String user_name, user_profilePic, user_email,user_username,user_password,user_lastmessage, user_usernameReal;
     private int postCount, linkCount;
+    private String verified;
 
     public Users(){}
 
-    public Users(String name, String imageuri, String emailId, String user_id, String newPassword, String user_usernameReal){
+    public Users(String name, String imageuri, String emailId, String user_id, String newPassword, String user_usernameReal, String verified){
         this.user_name = name;
         this.user_profilePic = imageuri;
         this.user_email = emailId;
         this.user_username = user_id;
         this.user_password = newPassword;
         this.user_usernameReal = user_usernameReal;
+        this.verified = verified;
     }
 
     public String getUser_name() {
@@ -89,5 +91,13 @@ public class Users {
 
     public void setLinkCount(int linkCount) {
         this.linkCount = linkCount;
+    }
+
+    public String getVerified() {
+        return verified;
+    }
+
+    public void setVerified(String verified) {
+        this.verified = verified;
     }
 }

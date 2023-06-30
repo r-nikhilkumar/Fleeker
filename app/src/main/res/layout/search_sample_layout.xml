@@ -40,7 +40,7 @@
             android:layout_marginTop="4dp"
             android:text="Name"
             android:layout_marginLeft="5dp"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/search_username"
             app:layout_constraintStart_toEndOf="@+id/search_profile"
             app:layout_constraintTop_toTopOf="@+id/search_profile"
@@ -69,6 +69,17 @@
             app:layout_constraintBottom_toBottomOf="@+id/search_profile"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/search_profile" />
+
+        <ImageView
+            android:id="@+id/searchVerify"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="1dp"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/search_name"
+            app:layout_constraintTop_toTopOf="@+id/search_name"
+            app:srcCompat="@drawable/baseline_verified_24" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>

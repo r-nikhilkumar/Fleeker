@@ -66,6 +66,13 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
         holder.likescount.setText(""+feeds_model.getLikesCount());
         holder.commentcount.setText(""+feeds_model.getCommentCount());
         holder.time.setText(TimeAgo.using(feeds_model.getTimedate()));
+        try {
+            if (feeds_model.getVerified().equals("true")) {
+                holder.verified.setVisibility(View.VISIBLE);
+            } else {
+                holder.verified.setVisibility(View.GONE);
+            }
+        }catch (NullPointerException ignored){}
 
         FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -213,7 +220,7 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
 
     public class viewholder extends RecyclerView.ViewHolder{
         TextView feedName, postDesc, likescount, commentcount, time;
-        ImageView feedProfile, postImage;
+        ImageView feedProfile, postImage, verified;
 
         public viewholder(@NonNull View itemView) {
             super(itemView);
@@ -224,6 +231,7 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
             likescount = itemView.findViewById(R.id.like_count);
             commentcount = itemView.findViewById(R.id.comment_count);
             time = itemView.findViewById(R.id.dateofposting);
+            verified = itemView.findViewById(R.id.feedVerify);
         }
     }
 }
