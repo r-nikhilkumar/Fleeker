@@ -59,9 +59,9 @@ public class SplashScreen extends AppCompatActivity {
                                 Intent loginToMainIntent = new Intent(SplashScreen.this, MainActivity.class);
                                 startActivity(loginToMainIntent);
                                 finishAffinity();
-                            } else {
+                            }else{
                                 startActivity(intent);
-                                finish();
+                                finishAffinity();
                             }
                         }
 
@@ -72,10 +72,7 @@ public class SplashScreen extends AppCompatActivity {
                 }catch (Exception e){
                     Toast.makeText(SplashScreen.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     startActivity(intent);
-                    finish();
-                }finally {
-                    startActivity(intent);
-                    finish();
+                    finishAffinity();
                 }
 
             }
