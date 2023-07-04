@@ -38,6 +38,7 @@ public class Feed extends Fragment {
     }
 
     feeds_adapter feeds_adapter;
+    ArrayList<String> mylinks;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,7 @@ public class Feed extends Fragment {
 
         feeds_model_list = new ArrayList<>();
         feed_rv = view.findViewById(R.id.feed_rv);
+        mylinks = new ArrayList<>();
 
         FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("user_profilePic").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -65,6 +67,26 @@ public class Feed extends Fragment {
 
             }
         });
+
+        FirebaseDatabase.getInstance().getReference("user").child(FirebaseAuth.getInstance().getUid()).child("Links").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot dataSnapshot:snapshot.getChildren()){
+                    if(dataSnapshot.getValue().equals("true")){
+                        mylinks.add(dataSnapshot.getKey());
+                    }else{
+                        continue;
+                    }
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
         FirebaseDatabase.getInstance().getReference("post").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -80,21 +102,25 @@ public class Feed extends Fragment {
                         feeds_model1.setLikesCount(postDB.getLikesCount());
                         feeds_model1.setTimedate(postDB.getPostdatetime());
                         feeds_model1.setFeedPostID(dataSnapshot.getKey());
-                        FirebaseDatabase.getInstance().getReference("user").child(postDB.getPostedByID()).addValueEventListener(new ValueEventListener() {
-                            @Override
-                            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                                Users user = snapshot.getValue(Users.class);
-                                feeds_model1.setFeedName(user.getUser_name());
-                                feeds_model1.setFeedProfile(user.getUser_profilePic());
-                                feeds_model1.setVerified(user.getVerified());
-                            }
+                        if(mylinks.contains(postDB.getPostedByID())||postDB.getPostedByID().equals(FirebaseAuth.getInstance().getUid())) {
+                            FirebaseDatabase.getInstance().getReference("user").child(postDB.getPostedByID()).addValueEventListener(new ValueEventListener() {
+                                @Override
+                                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                    Users user = snapshot.getValue(Users.class);
+                                    feeds_model1.setFeedName(user.getUser_name());
+                                    feeds_model1.setFeedProfile(user.getUser_profilePic());
+                                    feeds_model1.setVerified(user.getVerified());
+                                }
 
-                            @Override
-                            public void onCancelled(@NonNull DatabaseError error) {
+                                @Override
+                                public void onCancelled(@NonNull DatabaseError error) {
 
-                            }
-                        });
-                        feeds_model_list.add(feeds_model1);
+                                }
+                            });
+                            feeds_model_list.add(feeds_model1);
+                        }else{
+                            continue;
+                        }
 
 
                     }

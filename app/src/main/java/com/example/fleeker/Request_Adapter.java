@@ -85,6 +85,22 @@ public class Request_Adapter extends RecyclerView.Adapter<Request_Adapter.viewho
                                         holder.binding.requestLinkbtn.setCompoundDrawablesWithIntrinsicBounds(0, 0, R.drawable.outline_check_24, 0);
 
                                     }
+
+                                    FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                        @Override
+                                        public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                            Users userAnother = snapshot.getValue(Users.class);
+                                            assert userAnother != null;
+                                            FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).child("linkCount").setValue(userAnother.getLinkCount()+1);
+                                            FirebaseDatabase.getInstance().getReference("user").child(user.getUser_username()).child("Links").child(FirebaseAuth.getInstance().getUid()).setValue("true");
+                                        }
+
+                                        @Override
+                                        public void onCancelled(@NonNull DatabaseError error) {
+
+                                        }
+                                    });
+
                                 }
 
                                 @Override

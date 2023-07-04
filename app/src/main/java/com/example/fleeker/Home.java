@@ -51,7 +51,11 @@ public class Home extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot dataSnapshot : snapshot.getChildren()){
-                    mylist.add(dataSnapshot.getKey());
+                    if(dataSnapshot.getValue().equals("true")) {
+                        mylist.add(dataSnapshot.getKey());
+                    }else{
+                        continue;
+                    }
                 }
             }
 
