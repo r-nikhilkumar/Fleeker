@@ -83,7 +83,7 @@ public class Search extends AppCompatActivity {
         filteredList.clear();
         if(!newText.equals("")) {
             for (Users item : allItemList) {
-                if (item.getUser_usernameReal().toLowerCase().contains(newText.toLowerCase()) || item.getUser_name().toLowerCase().contains(newText.toLowerCase()) || item.getUser_username().toLowerCase().contains(newText.toLowerCase())) {
+                if (item.getUser_usernameReal().toLowerCase().contains(newText.toLowerCase()) || item.getUser_name().toLowerCase().contains(newText.toLowerCase())) {
                     filteredList.add(item);
                 }
                 else{
