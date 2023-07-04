@@ -88,7 +88,7 @@ public class PostActivity extends AppCompatActivity {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                if(!postDesc.getText().toString().isEmpty()){
+                if(!postDesc.getText().toString().isEmpty()||ImageURI!=null){
                     postbtn.setEnabled(true);
                     postbtn.setBackgroundColor(getResources().getColor(R.color.adon4));
                     postbtn.setTextColor(getResources().getColor(R.color.white));
@@ -133,6 +133,7 @@ public class PostActivity extends AppCompatActivity {
                             storage.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
+                                    ImageURI=null;
                                     PostDB postDB = new PostDB(uri.toString(), postdesc, FirebaseAuth.getInstance().getUid(), new Date().getTime(), 0, 0);
                                     FirebaseDatabase.getInstance().getReference("post").push().setValue(postDB).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override

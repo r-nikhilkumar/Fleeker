@@ -58,10 +58,14 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
         if(feeds_model.getPostDescription()!=null){
             holder.postDesc.setText(feeds_model.getPostDescription());
             holder.postDesc.setVisibility(View.VISIBLE);
+        }else{
+            holder.postDesc.setVisibility(View.GONE);
         }
         if(feeds_model.getPostImage()!=null){
             Picasso.get().load(feeds_model.getPostImage()).into(holder.postImage);
             holder.postImage.setVisibility(View.VISIBLE);
+        }else{
+            holder.postImage.setVisibility(View.GONE);
         }
         holder.likescount.setText(""+feeds_model.getLikesCount());
         holder.commentcount.setText(""+feeds_model.getCommentCount());
