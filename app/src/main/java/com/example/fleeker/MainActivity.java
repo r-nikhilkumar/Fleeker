@@ -26,25 +26,27 @@ public class MainActivity extends AppCompatActivity {
         loadFragment(new Home(),true);
         bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setSelectedItemId(R.id.menu_home);
+        Home home = new Home();
+        Feed feed = new Feed();
+        Notification notification = new Notification();
+        Account accountFrag = new Account();
+
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Fragment fragment = null;
                 if (item.getItemId() == R.id.menu_home) {
-                    loadFragment(new Home(), false);
+                    fragment = home;
                 }
                 else if (item.getItemId() == R.id.menu_feed) {
-                    loadFragment(new Feed(), false);
+                    fragment = feed;
                 }
                 else if (item.getItemId() == R.id.menu_notification) {
-                    loadFragment(new Notification(), false);
+                    fragment = notification;
                 }else if(item.getItemId()==R.id.menu_account){
-//                    Intent intent = getIntent();
-//                    Bundle bundle = new Bundle();
-//                    bundle.putString("user_id", intent.getStringExtra("user_id"));
-//                    new Account().setArguments(bundle);
-                    loadFragment(new Account(),false);
+                    fragment = accountFrag;
                 }
-                return true;
+                return loadFragment(fragment,false);
             }
         });
 
@@ -58,15 +60,23 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-    public void loadFragment(Fragment fragment, boolean flag){
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        if(flag){
-            fragmentTransaction.add(R.id.fragmentContainer, fragment);
-        }else{
-            fragmentTransaction.replace(R.id.fragmentContainer, fragment);
+
+
+
+    public boolean loadFragment(Fragment fragment, boolean flag){
+        if(fragment!=null) {
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            if (flag) {
+                fragmentTransaction.add(R.id.fragmentContainer, fragment);
+            } else {
+                fragmentTransaction.replace(R.id.fragmentContainer, fragment);
+            }
+            fragmentTransaction.commit();
+            return true;
         }
-        fragmentTransaction.commit();
+        return false;
     }
+
 
 }

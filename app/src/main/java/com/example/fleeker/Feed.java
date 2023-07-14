@@ -87,7 +87,7 @@ public class Feed extends Fragment {
             }
         });
 
-        FirebaseDatabase.getInstance().getReference("post").addValueEventListener(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("post").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if(snapshot.exists()){
@@ -103,7 +103,7 @@ public class Feed extends Fragment {
                         feeds_model1.setTimedate(postDB.getPostdatetime());
                         feeds_model1.setFeedPostID(dataSnapshot.getKey());
                         if(mylinks.contains(postDB.getPostedByID())||postDB.getPostedByID().equals(FirebaseAuth.getInstance().getUid())) {
-                            FirebaseDatabase.getInstance().getReference("user").child(postDB.getPostedByID()).addValueEventListener(new ValueEventListener() {
+                            FirebaseDatabase.getInstance().getReference("user").child(postDB.getPostedByID()).addListenerForSingleValueEvent(new ValueEventListener() {
                                 @Override
                                 public void onDataChange(@NonNull DataSnapshot snapshot) {
                                     Users user = snapshot.getValue(Users.class);

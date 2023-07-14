@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.fleeker.model.PostDB;
 import com.example.fleeker.model.comment_model;
 import com.example.fleeker.model.feeds_model;
 import com.github.marlonlom.utilities.timeago.TimeAgo;
@@ -67,8 +68,22 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
         }else{
             holder.postImage.setVisibility(View.GONE);
         }
-        holder.likescount.setText(""+feeds_model.getLikesCount());
-        holder.commentcount.setText(""+feeds_model.getCommentCount());
+        FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                PostDB p = snapshot.getValue(PostDB.class);
+                assert p != null;
+                holder.likescount.setText(String.valueOf(p.getLikesCount()));
+                holder.commentcount.setText(String.valueOf(p.getCommentCount()));
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+//        holder.likescount.setText(String.valueOf(feeds_model.getLikesCount()));
+//        holder.commentcount.setText(String.valueOf(feeds_model.getCommentCount()));
         holder.time.setText(TimeAgo.using(feeds_model.getTimedate()));
         try {
             if (feeds_model.getVerified().equals("true")) {
@@ -78,7 +93,7 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
             }
         }catch (NullPointerException ignored){}
 
-        FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (Objects.equals(snapshot.child("likedBy").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).getValue(), "true")) {
@@ -101,27 +116,17 @@ public class feeds_adapter extends RecyclerView.Adapter<feeds_adapter.viewholder
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         if (Objects.equals(snapshot.child("likedBy").child(Objects.requireNonNull(FirebaseAuth.getInstance().getUid())).getValue(), "true")) {
-                            FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likesCount").setValue(Integer.parseInt(snapshot.child("likesCount").getValue().toString()) - 1).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    holder.likescount.setCompoundDrawablesWithIntrinsicBounds(R.drawable.heart_outlined,0,0,0);
-                                    HashMap<String, Object> liked = new HashMap<String, Object>();
-                                    liked.put(FirebaseAuth.getInstance().getUid(), "false");
-                                    FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likedBy").updateChildren(liked);
-                                }
-                            });
-
+                            FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likesCount").setValue(Integer.parseInt(Objects.requireNonNull(snapshot.child("likesCount").getValue()).toString()) - 1);
+                            holder.likescount.setCompoundDrawablesWithIntrinsicBounds(R.drawable.heart_outlined,0,0,0);
+                            HashMap<String, Object> liked = new HashMap<String, Object>();
+                            liked.put(FirebaseAuth.getInstance().getUid(), null);
+                            FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likedBy").updateChildren(liked);
                         }else {
-                            FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likesCount").setValue(Integer.parseInt(snapshot.child("likesCount").getValue().toString()) + 1).addOnSuccessListener(new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void unused) {
-                                    holder.likescount.setCompoundDrawablesWithIntrinsicBounds(R.drawable.heartfilled,0,0,0);
-                                    HashMap<String, Object> liked = new HashMap<String, Object>();
-                                    liked.put(FirebaseAuth.getInstance().getUid(), "true");
-                                    FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likedBy").updateChildren(liked);
-
-                                }
-                            });
+                            FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likesCount").setValue(Integer.parseInt(Objects.requireNonNull(snapshot.child("likesCount").getValue()).toString()) + 1);
+                            holder.likescount.setCompoundDrawablesWithIntrinsicBounds(R.drawable.heartfilled,0,0,0);
+                            HashMap<String, Object> liked = new HashMap<String, Object>();
+                            liked.put(FirebaseAuth.getInstance().getUid(), "true");
+                            FirebaseDatabase.getInstance().getReference("post").child(feeds_model.getFeedPostID()).child("likedBy").updateChildren(liked);
                         }
                         }
 
